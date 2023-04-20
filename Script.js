@@ -22,5 +22,17 @@ myDropzone.on("complete", function (file) {
       max_tokens: 50,
       n: 1,
       temperature: 0.7,
+      api_key: "<TU_CLAVE_DE_API_DE_OPENAI>", // Reemplazar con tu clave de API
     }).then(function (response) {
-      // Mostrar la respuesta de ChatG
+      // Mostrar la respuesta de ChatGPT
+      const output = document.getElementById("output");
+      output.innerHTML = response.data.choices[0].text;
+    }).catch(function (error) {
+      // Manejar errores de Axios
+      console.log(error);
+    });
+  }).catch(function (error) {
+    // Manejar errores de mammoth.js
+    console.log(error);
+  });
+});
